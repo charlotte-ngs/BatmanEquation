@@ -1,0 +1,71 @@
+---
+title: "Batman Equation Plot Using ggplot2"
+author: "Peter von Rohr"
+date: "10/30/2017"
+output:
+  pdf_document:
+    includes:
+      in_header: ../tex/header.tex
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+R, RStudio, Rmarkdown and knitr are a very powerful set of tools when it comes to scientific writing. For reasons of convenience, we abbreviate the set of the above mentioned tools by $T$, hence $T$ is defined as the following set.
+
+$$T = \{\text{R},\text{RStudio},\text{Rmarkdown},\text{knitr} \}$$
+
+In the context of this post scientific writing stands not only for writing manuscripts for scientific journals but also for writing documents related to teaching courses. Writing documents with the above mentioned set of tools has several advantages. A few of them are listed below.
+
+* Rmarkdown files are a unified representation for the source of explanatory text and programming code. 
+* The markdown format is a very easy and compared to LaTeX a very light-weight markup language for type-setting text.
+* $T$ makes it very easy to include plots into any given document.
+* $T$ allows for the inclusion of LaTeX equations
+* The same Rmarkdown source file can be used to produce a variety of output formats, such as PDF, HTML, DOCX, and others
+
+
+## Plots
+Because R has quite a number of plotting systems, they are all available when we write an Rmarkdown document. We are using one of the more recent systems called `ggplot2`. 
+
+
+## Equations
+Documents in Science, Technology, Engineering and Mathematics (STEM) very often contain equations. High quality typsetting of equations is very important for understanding the content of equations. 
+
+## The Batman Equation
+The Batman equation $B(x,y)$ was initially given on [HardOCP](http://www.hardocp.com/news/2011/07/29/batman_equation/). The description of how to plot the Batman equation using ggplot2 is available from https://guangchuangyu.github.io/2011/08/the-batman-equation/. The equation is defined as
+
+\begin{IEEEeqnarray}{rCl}
+B(x,y) &=& r(x,y) \cdot s(x,y) \cdot t(x,y) \cdot u(x,y) \cdot v(x,y) \cdot w(x,y)
+\end{IEEEeqnarray}
+
+The whole equation consists of six parts. The Batman figure can be created by setting $B(x,y)$ to $0$. This is the case when at least one of the defining parts is $0$. The parts are defined as follows
+
+\begin{IEEEeqnarray}{rCl}
+r(x,y) &=& (\frac{x}{7})^2 \cdot \sqrt{\frac{||x|-3|}{(|x|-3)}}+ (\frac{y}{3})^2 \cdot \sqrt{\frac{|y+3 \cdot \frac{\sqrt{33}}{7}|}{y+3 \cdot \frac{\sqrt{33}}{7}}}-1)
+\end{IEEEeqnarray}
+
+\begin{IEEEeqnarray}{rCl}
+s(x,y) &=& (|\frac{x}{2}|-((3 \cdot \frac{\sqrt{33}-7)}{112}) \cdot x^2-3+\sqrt{1-(||x|-2|-1)^2}-y) 
+\end{IEEEeqnarray}
+
+\begin{IEEEeqnarray}{rCl}
+t(x,y) = (9 \cdot \sqrt{\frac{|(|x|-1) \cdot (|x|-0.75)|}{((1-|x|)*(|x|-0.75))}}-8 \cdot |x|-y)
+\end{IEEEeqnarray}
+
+\begin{IEEEeqnarray}{rCl}
+u(x,y) = (3 \cdot |x|+0.75 \cdot \sqrt{\frac{|(|x|-0.75) \cdot (|x|-0.5)|}{((0.75-|x|) \cdot (|x|-0.5))}}-y)
+\end{IEEEeqnarray}
+
+\begin{IEEEeqnarray}{rCl}
+v(x,y) &=& (2.25 \cdot \sqrt{\frac{|(x-0.5) \cdot (x+0.5)|}{((0.5-x) \cdot (0.5+x))}}-y) 
+\end{IEEEeqnarray}
+
+\begin{IEEEeqnarray}{rCl}
+w(x,y) &=& (\frac{6 \cdot \sqrt{10}}{7}+(1.5-0.5 \cdot |x|) \cdot  \sqrt{\frac{||x|-1|}{|x|-1}}-(\frac{6 \cdot \sqrt{10}}{14}) \cdot \sqrt{4-(|x|-1)^2}-y)
+\end{IEEEeqnarray}
+
+
